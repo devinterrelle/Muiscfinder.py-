@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results - {{ song }} by {{ artist }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ song }} by {{ artist }}</h1>
+        
+        <h2>Lyrics</h2>
+        <pre class="lyrics">{{ lyrics }}</pre>
+        
+        {% if sample_links %}
+        <h2>WhoSampled Link</h2>
+        <ul>
+            {% for link in sample_links %}
+            <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No sampling data found.</p>
+        {% endif %}
+
+        <a href="/" class="back-link">← Try another song</a>
+    </div>
+</body>
+</html>
